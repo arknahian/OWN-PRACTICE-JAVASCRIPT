@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversal</title>
+    <style>
+        #grand-parent {
+            background-color: wheat;
+            padding: 10px;
+            border: 4px solid black;
+        }
+
+        .parent {
+            background-color: teal;
+            padding: 50px;
+            margin: 30px;
+            display: flex;
+            justify-content: space-around;
+            border: 4px solid black;
+        }
+
+        .child {
+            background-color: tomato;
+            padding: 100px;
+            margin: 30px;
+            border: 4px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grand-parent">
+        <div class="parent">
+            <div class="child" id="child-one"></div>
+            <div class="child"></div>
+        </div>
+        <div class="parent">
+            <div class="child"></div>
+            <div class="child"></div>
+        </div>
+    </div>
+
+    <script>
+        // const grandParent = document.getElementById("grand-parent");
+        // changeColor(grandParent);
+
+        // const parent = Array.from(document.getElementsByClassName("parent"));
+        // parent.forEach(x => {
+        //     x.innerText = "hello";
+        // });
+        // parent.innerText = "hello";
+
+        // console.log(parent);
+
+
+            // const parents = Array.from(grandParent.children);
+            // parents.forEach(changeColor);
+
+            // const parentOne = parents[0];
+            // const children = parentOne.children;
+            // changeColor(children[0]);
+
+            const childOne = document.querySelector("#child-one");
+            const parent = childOne.parentElement;
+            changeColor(parent);
+
+            const grandParent = childOne.closest("#grand-parent");
+            changeColor(grandParent);
+            
+            const sibling = childOne.nextElementSibling;
+            changeColor(sibling);
+            
+
+
+        // const parents = document.querySelectorAll(".parent");
+        // console.log(parents);
+        // parents.forEach(changeColor);
+
+        function changeColor(element) {
+            element.style.backgroundColor = "grey";
+        }
+
+        // const arr = [12, 43, 43];
+        // arr.forEach(element => {
+        //     console.log(element);
+        // })
+    </script>
+</body>
+
+</html>

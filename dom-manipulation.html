@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+
+<body>
+    <div id="parent">
+        <h2> <span id="hi" title="hello">Hello</span> <span id="bye">World!</span> <span id="just">You</span></h2>
+        <h2 data-test="First time dude!" data-another-test="Second time" id="new">I am the newest</h2>
+
+    </div>
+</body>
+<script>
+    console.log(document.getElementById("parent").textContent);
+
+    const hello = document.getElementById("hi");
+    console.log(hello.setAttribute("title", "Wassup Man?"))
+
+    const bye = document.getElementById("bye");
+    bye.classList.add("Wassup");
+    bye.classList.toggle("hi3", false)
+    bye.classList.remove("Wassup")
+
+    const duffer = document.getElementById("just");
+    duffer.remove();
+  
+    const newest = document.getElementById("new");
+    console.log(newest.dataset.test)
+
+    newest.dataset.newName = "hey how are you?"
+
+</script>
+
+</html>

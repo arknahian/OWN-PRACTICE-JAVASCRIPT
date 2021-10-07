@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversal</title>
+    <style>
+        #grand-parent {
+            background-color: wheat;
+            padding: 10px;
+            border: 4px solid black;
+        }
+
+        .parent {
+            background-color: teal;
+            padding: 50px;
+            margin: 30px;
+            display: flex;
+            justify-content: space-around;
+            border: 4px solid black;
+        }
+
+        .child {
+            background-color: tomato;
+            padding: 100px;
+            margin: 30px;
+            border: 4px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grand-parent">
+        <div class="parent">
+            <div class="child" id="child-one"></div>
+            <div class="child"></div>
+        </div>
+        <div class="parent">
+            <div class="child"></div>
+            <div class="child"></div>
+        </div>
+    </div>
+
+    <script>
+        const child = document.querySelector(".child");
+        const parent = child.nextElementSibling;
+        const grandParent = child.closest("#grand-parent");
+        changeColor(parent);
+        changeColor(grandParent);
+
+        function changeColor(element){
+            element.style.backgroundColor = "grey";
+        }
+    </script>
+</body>
+
+</html>
